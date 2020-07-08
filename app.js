@@ -6,10 +6,12 @@ const logger = require('morgan');
 const session = require('express-session');
 const cookieParser = require('cookie-parser');
 const bodyParser = require('body-parser');
-const flash = require('connect-flash');
-const expressValidator = require('express-validator');
+const flash = require('express-flash');
 const mongoose = require('mongoose');
 const expressLayouts = require('express-ejs-layouts');
+const passport = require('passport');
+const methodOverRide = require('method-override');
+
 
 
 
@@ -29,11 +31,26 @@ app.use(expressLayouts);
 // morgan setup
 app.use(logger('dev'))
 
+//flash setup
+app.use(flash());
+
+// Method Override setup
+app.use(methodOverRide('_method'));
+
 // bodyParser setup 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: false}));
 
+// express-session setup
+app.use(session({
+    secret: process.env.SESSION_SECRET,
+    resave: false,
+    saveUninitialized: false
+}));
 
+// Passport setup 
+app.use(passport.initialize());
+app.use(passport.session());
 
 // All routes
 const homeRouter = require('./controllers/indexhome');

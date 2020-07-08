@@ -6,6 +6,10 @@
   <%  })  %>  
     </ul>
 <% } %> 
+<% if(locals.imgErr) { %>
+    <li><%= imgErr %></li>
+<% } %>
+
 <div class="login-container">
     <form action="/user/register" method="POST" enctype="multipart/form-data">
         <label for="name">Name</label>

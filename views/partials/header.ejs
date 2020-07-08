@@ -2,9 +2,16 @@
     <nav>
         <ul>
             <li><a href="/">NodeAuth</a></li>
-            <li><a href="/user/login">Login</a></li>
+            <% if(locals.userDetails == undefined) { %>
+                <li><a href="/user/login">Login</a></li>
+            <% } else { %>
+                <form action="user/logout?_method=DELETE" method="POST">
+                    <li><a href=""><button type="submit">Log Out</button></a></li>
+                </form>
+            <%  } %>
+                
             <li><a href="/user/register">Register</a></li>
-            <li><a href="user/members">Members</a></li>
+            <li><a href="/members">Members</a></li>
         </ul>
     </nav>
 </header>
