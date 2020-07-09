@@ -1,16 +1,28 @@
-<h2><%= title %></h2>
+
 <% if(locals.successMsg) { %>
-     <li> <%= successMsg %> </li>
-<% } %> 
+    <div class="alert-success">
+        <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span>
+        <%= successMsg %>
+      </div>
+    <% } %> 
 <% if(locals.messages.error) { %>
-      <li> <%= messages.error  %></li>
-<% } %> 
-<div class="login-container">
-    <form action="/user/login" method="POST">
-        <label for="username">email</label>
-        <input type="email" name="email" id="username">
-        <label for="password">password</label>
-        <input type="text" name="password" id="password">
-        <input type="submit" value="submit">
-    </form>
+    <div class="alert-error">
+        <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span>
+        <li class="errorMsg"> <%= messages.error  %></li>
+    </div>
+      
+<% } %>
+<div class="main-container">
+    <div class="title-container">
+        <h2><%= title %></h2>
+    </div> 
+    <div class="login-container">
+        <form action="/user/login" method="POST">
+            <label for="username" >email</label>
+            <input type="email" name="email" id="username" class="input-text">
+            <label for="password" >password</label>
+            <input type="password" name="password" id="password" class="input-text">
+            <input type="submit" value="submit" class="input-submit">
+        </form>
+    </div>
 </div>

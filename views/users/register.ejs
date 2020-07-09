@@ -1,29 +1,42 @@
-<!-- <h2>< title %></h2> -->
 <% if(locals.errors) { %>
     <ul>
    <% Object.values(errors).forEach((error) => { %>
-        <li><%= error.msg %></li>
+    <div class="alert-error">
+        <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span>
+        <li class="errorMsg"> <%= error.msg  %></li>
+    </div>
+        
   <%  })  %>  
     </ul>
 <% } %> 
 <% if(locals.imgErr) { %>
-    <li><%= imgErr %></li>
-<% } %>
+    <div class="alert-error">
+        <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span>
+        <li class="errorMsg"> <%= imgErr  %></li>
+    </div>
+    <% } %>
+    <div class="main-container">
+<div class="title-container">
+    <h2>Register</h2>
+    <p>Register Now By Filling All The Details</p>
+</div>
 
 <div class="login-container">
     <form action="/user/register" method="POST" enctype="multipart/form-data">
         <label for="name">Name</label>
-        <input type="text" name="name" id="name">
+        <input type="text" name="name" id="name" class="input-text">
         <label for="email">email</label>
-        <input type="email" name="email" id="email">
+        <input type="email" name="email" id="email" class="input-text">
         <label for="username">username</label>
-        <input type="text" name="username" id="username">
+        <input type="text" name="username" id="username" class="input-text">
         <label for="password">password</label>
-        <input type="password" name="password" id="password">
+        <input type="password" name="password" id="password" class="input-text">
         <label for="confirmPassword">confirmPassword</label>
-        <input type="password" name="confirmPassword" id="confirmPassword">
+        <input type="password" name="confirmPassword" id="confirmPassword" class="input-text">
         <label for="ProfileImage">ProfileImage</label>
-        <input type="file" name="profileImage" id="ProfileImage">
-        <input type="submit" value="submit">
+        <input type="file" name="profileImage" id="ProfileImage" class="input-file">
+        <input type="submit" value="submit" class="input-submit">
      </form>
+</div>
+
 </div>

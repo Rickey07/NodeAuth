@@ -1,0 +1,30 @@
+@import './sharedcss/fonts.css';
+@import './sharedcss/login-register.css';
+@import './sharedcss/footer.css';
+@import './sharedcss/variables.css';
+@import './sharedcss/nav.css';
+@import './sharedcss/error-successmsgs.css';
+
+
+
+
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Raleway' , sans-serif;
+}
+
+.container {
+    width: 100%;
+    margin: 0 auto;
+}
+
+
+
+
+
+
+
+

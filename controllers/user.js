@@ -62,23 +62,25 @@ check('confirmPassword' , 'Password does not match').custom((value , {req}) => v
             res.render('users/register' , {errors: errors})
         } 
         
-        if(req.file.filename == undefined) {
+        if(req.file == undefined) {
             res.render('users/register' , {imgErr: 'Please Upload an Image'})
-        }        
-        const hashedPassword = await bcrypt.hash(req.body.password , 10);
-        const newUser = await new User({
-            username:req.body.username,
-            password:hashedPassword,
-            email:req.body.email,
-            name:req.body.name,
-            profileImage:req.file.filename
-        }).save()
+        }   else {
 
-        res.render('users/login' , {successMsg: 'SuccessFully Registered Now may Login !'})
-        
+            const hashedPassword = await bcrypt.hash(req.body.password , 10);
+            const newUser = await new User({
+                username:req.body.username,
+                password:hashedPassword,
+                email:req.body.email,
+                name:req.body.name,
+                profileImage:req.file.filename
+            }).save()
+    
+            res.render('users/login' , {successMsg: 'SuccessFully Registered Now You May Login !' , title:"Login"})
+            
+        }     
 
     } catch (e) {
-        res.render('users/login' ,  {errorMsg: 'Internal Server Error Please Try Again Later!'} )
+        res.render('users/login' ,  {errorMsg: 'Internal Server Error Please Try Again Later!' , title:"Login"} );
     }
 });
 

@@ -58,6 +58,8 @@ const userRouter = require('./controllers/user');
 app.use('/' , homeRouter);
 app.use('/user' , userRouter)
 
+
+
 // DB Connection
 mongoose.connect(process.env.DATABASE_URL , {useNewUrlParser: true , useUnifiedTopology: true , useCreateIndex: true})
 .then(done => console.log('DB Connected'))

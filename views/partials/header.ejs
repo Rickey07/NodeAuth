@@ -1,17 +1,26 @@
 <header>
     <nav>
         <ul>
-            <li><a href="/">NodeAuth</a></li>
+            <li class="logo"><a href="/">NodeAuth</a></li>
             <% if(locals.userDetails == undefined) { %>
-                <li><a href="/user/login">Login</a></li>
+                <li class="nav-link"><a href="/user/login">Login</a></li>
             <% } else { %>
-                <form action="user/logout?_method=DELETE" method="POST">
-                    <li><a href=""><button type="submit">Log Out</button></a></li>
+                <form action="/logout?_method=DELETE" method="POST">
+                    <li class="nav-link"><a href=""><button type="submit">Log Out</button></a></li>
                 </form>
             <%  } %>
                 
-            <li><a href="/user/register">Register</a></li>
-            <li><a href="/members">Members</a></li>
+            <li class="nav-link"><a href="/user/register">Register</a></li>
+            <li class="nav-link"><a href="/members">Members</a></li>
+            <li class="nav-btn"><a href="#"><i class="fas fa-bars"></i></a></li>
         </ul>
     </nav>
 </header>
+
+<script defer>
+    
+        document.querySelector('.nav-btn').addEventListener('click' , () => {
+            document.querySelectorAll('.nav-link').forEach(navlink => navlink.classList.toggle('show'))
+        })
+
+</script>

@@ -9,8 +9,10 @@ router.get('/members' , checkAuth , (req , res) => {
     
     res.render('members/Members' , {userDetails: req.user})
 })
-
-router.delete('/logout')
+router.delete('/logout' ,   (req ,res) => {
+    req.logOut();
+    res.redirect('/user/login');
+})
 
 function checkAuth (req , res , next) {
     if(req.isAuthenticated()) {

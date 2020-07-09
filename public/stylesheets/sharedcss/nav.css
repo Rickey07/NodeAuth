@@ -1,0 +1,104 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+nav {
+    background: black;
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+
+}
+
+nav ul li {
+    padding: 15px 0;
+    cursor: pointer;
+}
+
+nav ul li i {
+    font-size: 35px;
+    color: whitesmoke;
+    margin-left: .8rem;
+}
+
+nav ul li a {
+    position: relative;
+    width: auto;
+    margin: 0 16px;
+    text-align: center;
+    color: white;
+    text-decoration: none;
+}
+
+nav ul li a::after {
+    position: absolute;
+    content: '';
+    height: 2px;
+    width: 100%;
+    background: white;
+    left: 0;
+    bottom: 5px;
+    opacity: 0;
+    transition: 0.2s all linear;
+}
+
+nav ul li a:hover::after {
+    opacity: 1;
+    bottom: 0px;
+}
+
+nav ul li.logo {
+    font-size: 1.8rem;
+}
+
+nav ul li:hover a {
+    color: whitesmoke;
+}
+
+
+nav ul li.navbtn {
+    display: none;
+}
+
+@media all and (max-width:850px) {
+    nav {
+        padding: 5px 30px;
+    }
+
+    nav ul li.nav-link {
+        width: 100%;
+        display: none;
+    }
+
+    nav ul li.nav-link.show {
+        display: block;
+        transition: 0.4s all linear;
+        text-align: center;
+    }
+
+    nav ul li.nav-btn {
+        display: block;
+    }
+
+    nav ul li.nav-btn.show i::before {
+        content: '\f00d';
+        transition: 0.4s all ease-in-out;
+    }
+
+    nav ul li.nav-link:hover {
+        border-radius: 5px;
+        box-shadow: inset 0 0 5px rgb(100, 100, 100),
+                    inset 0 0 10px rgb(68, 65, 65);
+    }
+
+    nav ul li.nav-link:hover::after {
+        opacity: 0;
+    }
+}

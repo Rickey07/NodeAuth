@@ -1,0 +1,9 @@
+:root {
+    --color-base-hue:hsl(112 , 100% , 43%);
+    --color-background-dark-hue:hsl(var(--color-base-hue) , 100% , 70%);
+    --color-background-light-hue:hsl(var(--color-base-hue) , 100% , 40%);
+    --color-background-button:rgb(74, 74, 194);
+    --color-background-button-hover:rgb(155, 192, 155);
+    --color-background-button-hover-red:rgb(207, 83, 83);
+    --color-input-border:rgb(58, 52, 52);
+}

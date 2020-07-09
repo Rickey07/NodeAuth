@@ -1,0 +1,30 @@
+.alert-success {
+    padding: 20px;
+    background-color: var(--color-background-button-hover); /* Green */
+    color: white;
+    margin-bottom: 15px;
+  }
+  
+  .alert-error {
+    padding: 20px;
+    background-color: var(--color-background-button-hover-red); /* Red */
+    color: white;
+    margin-bottom: 15px;
+  }
+
+  /* The close button */
+  .closebtn {
+    margin-left: 15px;
+    color: white;
+    font-weight: bold;
+    float: right;
+    font-size: 22px;
+    line-height: 20px;
+    cursor: pointer;
+    transition: 0.3s;
+  }
+  
+  /* When moving the mouse over the close button */
+  .closebtn:hover {
+    color: black;
+  }
